@@ -1,3 +1,4 @@
+package arc;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -70,7 +71,7 @@ public class Console{
         */
     public void println(char[] chrX){
         this.deleteFirstLineIfNeeded();
-        this.theArea.append(chrX + "\n"); 
+        this.theArea.append(String.valueOf(chrX) + "\n"); 
     }
     /** Print whatever is in the double variable to the Console followed by a newline 
         * @param dblX double value to print
@@ -130,7 +131,7 @@ public class Console{
         * @param chrX character array to print
         */
     public void print(char[] chrX){
-        this.theArea.append(chrX + ""); 
+        this.theArea.append(String.valueOf(chrX) + ""); 
     }
     /** Print whatever is in the double variable to the Console and stay on the same line 
         * @param dblX double value to print

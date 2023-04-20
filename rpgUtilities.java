@@ -1,11 +1,12 @@
+import arc.*;
 import java.awt.*;
 import java.awt.image.*;
 
-public class rpgtools{
+public class rpgUtilities{
 //---------------------------------------------------------READING CSV FILE---------------------------------------------------------------------//	
 	public static String[][] ReadCSV(Console con){
 		//opening CSV file to read
-		TextInputFile mapfile = new TextInputFile("rpgmap1.csv");
+		TextInputFile mapfile = new TextInputFile("maps/rpgmap1.csv");
 		int intRow;
 		int intColumn;
 		String strLine;

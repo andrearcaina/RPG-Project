@@ -10,10 +10,11 @@
 //hero can carry items that give damage or defence or HP
 //smooth drawing
 
+import arc.Console;
 import java.awt.*;
 import java.awt.image.*;
 
-public class RpgGameAndreA{
+public class rpgMain{
 	public static void main(String[] args){
 		Console con = new Console("Charizard Adventures!", 600, 900);		
 		//boolean variable to make the game keep going
@@ -31,7 +32,7 @@ public class RpgGameAndreA{
 			con.fillRect(0, 40, 600, 10);
 			con.drawString("Press (p) to play the game.", 80, 50);
 			con.drawString("Press (h) for help on the game.", 80, 100);
-			BufferedImage CharizardHero = con.loadImage("CharizardHero.gif");
+			BufferedImage CharizardHero = con.loadImage("imgs/CharizardHero.gif");
 			con.drawImage(CharizardHero, 60, 300);
 			con.repaint();
 	
@@ -60,26 +61,26 @@ public class RpgGameAndreA{
 				
 				String strMap[][];
 				//method to read the csv file
-				strMap = rpgtools.ReadCSV(con); 
+				strMap = rpgUtilities.ReadCSV(con); 
 				
 				//loads all the images from file
-				BufferedImage grassimage = con.loadImage("grass.gif");
-				BufferedImage groundimage = con.loadImage("ground.gif");
-				BufferedImage bridgeimage = con.loadImage("bridge.gif");
-				BufferedImage sandimage = con.loadImage("sand.gif");
-				BufferedImage heroimage = con.loadImage("hero.gif");
-				BufferedImage item1image = con.loadImage("ITEM_IRON_DEFENCE.gif");
-				BufferedImage item2image = con.loadImage("ITEM_SPECTRAL_BEAM.gif");
-				BufferedImage item3image = con.loadImage("ITEM_FIRE_BOOST.gif");
-				BufferedImage item4image = con.loadImage("ITEM_POTION.gif");
-				BufferedImage treeimage = con.loadImage("tree.gif");
-				BufferedImage fenceimage = con.loadImage("fence.gif");
-				BufferedImage waterimage = con.loadImage("water.gif");
-				BufferedImage buildingimage = con.loadImage("building.gif");
-				BufferedImage enemy1image = con.loadImage("enemy1.gif");
-				BufferedImage enemy2image = con.loadImage("enemy2.gif");
-				BufferedImage enemy3image = con.loadImage("enemy3.gif");
-				BufferedImage bossimage = con.loadImage("boss.gif");
+				BufferedImage grassimage = con.loadImage("imgs/grass.gif");
+				BufferedImage groundimage = con.loadImage("imgs/ground.gif");
+				BufferedImage bridgeimage = con.loadImage("imgs/bridge.gif");
+				BufferedImage sandimage = con.loadImage("imgs/sand.gif");
+				BufferedImage heroimage = con.loadImage("imgs/hero.gif");
+				BufferedImage item1image = con.loadImage("imgs/ITEM_IRON_DEFENCE.gif");
+				BufferedImage item2image = con.loadImage("imgs/ITEM_SPECTRAL_BEAM.gif");
+				BufferedImage item3image = con.loadImage("imgs/ITEM_FIRE_BOOST.gif");
+				BufferedImage item4image = con.loadImage("imgs/ITEM_POTION.gif");
+				BufferedImage treeimage = con.loadImage("imgs/tree.gif");
+				BufferedImage fenceimage = con.loadImage("imgs/fence.gif");
+				BufferedImage waterimage = con.loadImage("imgs/water.gif");
+				BufferedImage buildingimage = con.loadImage("imgs/building.gif");
+				BufferedImage enemy1image = con.loadImage("imgs/enemy1.gif");
+				BufferedImage enemy2image = con.loadImage("imgs/enemy2.gif");
+				BufferedImage enemy3image = con.loadImage("imgs/enemy3.gif");
+				BufferedImage bossimage = con.loadImage("imgs/boss.gif");
 				
 				int intRow;
 				int intCol;
@@ -332,7 +333,7 @@ public class RpgGameAndreA{
 					
 					//enemy1
 					if(strMap[intHeroRow][intHeroCol].equals("enemy1")){
-						intHeroHP = rpgtools.BattleEnemyOne(intHeroHP, intHeroSTR, intHeroDEF, intEnemy1HP, intEnemy1STR, intEnemy1DEF, con);
+						intHeroHP = rpgUtilities.BattleEnemyOne(intHeroHP, intHeroSTR, intHeroDEF, intEnemy1HP, intEnemy1STR, intEnemy1DEF, con);
 					}
 					//once you kill the enemy you replace it with the tile it was on
 					if(strMap[intPrevHeroRow][intPrevHeroCol].equals("enemy1")){
@@ -342,7 +343,7 @@ public class RpgGameAndreA{
 					
 					//enemy2
 					if(strMap[intHeroRow][intHeroCol].equals("enemy2")){
-						intHeroHP = rpgtools.BattleEnemyTwo(intHeroHP, intHeroSTR, intHeroDEF, intEnemy2HP, intEnemy2STR, intEnemy2DEF, con);
+						intHeroHP = rpgUtilities.BattleEnemyTwo(intHeroHP, intHeroSTR, intHeroDEF, intEnemy2HP, intEnemy2STR, intEnemy2DEF, con);
 					}
 					//once you kill the enemy you replace it with the tile it was on
 					if(strMap[intPrevHeroRow][intPrevHeroCol].equals("enemy2")){
@@ -352,7 +353,7 @@ public class RpgGameAndreA{
 					
 					//enemy3
 					if(strMap[intHeroRow][intHeroCol].equals("enemy3")){
-						intHeroHP = rpgtools.BattleEnemyThree(intHeroHP, intHeroSTR, intHeroDEF, intEnemy3HP, intEnemy3STR, intEnemy3DEF, con);
+						intHeroHP = rpgUtilities.BattleEnemyThree(intHeroHP, intHeroSTR, intHeroDEF, intEnemy3HP, intEnemy3STR, intEnemy3DEF, con);
 					}
 					//once you kill the enemy you replace it with the tile it was on
 					if(strMap[intPrevHeroRow][intPrevHeroCol].equals("enemy3")){
@@ -362,7 +363,7 @@ public class RpgGameAndreA{
 					
 					//boss
 					if(strMap[intHeroRow][intHeroCol].equals("boss")){
-						rpgtools.BattleBoss(intHeroHP, intHeroSTR, intHeroDEF, intBossHP, intBossSTR, intBossDEF, con);
+						rpgUtilities.BattleBoss(intHeroHP, intHeroSTR, intHeroDEF, intBossHP, intBossSTR, intBossDEF, con);
 						con.setDrawColor(Color.BLACK);
 						con.fillRect(0, 600, 600, 400);
 						con.fillRect(0, 0, 600, 600);
@@ -376,7 +377,7 @@ public class RpgGameAndreA{
 				}
 			}else if(chrKey == 'h'){
 				//method to show help screen
-				rpgtools.HelpScreen(con);
+				rpgUtilities.HelpScreen(con);
 				//asks user to input c to leave help screen
 				chrKey = con.readChar();
 				while(chrKey != 'c'){		
