@@ -14,7 +14,7 @@ import arc.Console;
 import java.awt.*;
 import java.awt.image.*;
 
-public class rpgMain{
+public class rpgMain {
 	public static void main(String[] args){
 		Console con = new Console("Charizard Adventures!", 600, 900);		
 		//boolean variable to make the game keep going

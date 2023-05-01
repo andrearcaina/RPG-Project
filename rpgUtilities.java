@@ -2,7 +2,7 @@ import arc.*;
 import java.awt.*;
 import java.awt.image.*;
 
-public class rpgUtilities{
+public class rpgUtilities {
 //---------------------------------------------------------READING CSV FILE---------------------------------------------------------------------//	
 	public static String[][] ReadCSV(Console con){
 		//opening CSV file to read
